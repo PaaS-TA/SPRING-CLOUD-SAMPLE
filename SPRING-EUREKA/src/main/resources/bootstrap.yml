@@ -1,0 +1,26 @@
+spring:
+  application:
+      name: CloudEureka
+  cloud:
+    config:
+      uri: http://localhost:8004
+
+server:
+  port: ${PORT:2221}
+
+
+# Configure this Discovery Server
+eureka:
+  server:
+    enableSelfPreservation: true
+  instance:
+    appname: ${spring.application.name}
+    hostname: ${spring.cloud.client.hostname}
+    preferIpAddress: true
+  client:  # Standalone mode (not a client, don't register with itself)
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:  # It must set variable server port when it registers itself
+      defaultZone: http://127.0.0.1:2221/eureka/
+    healthcheck:
+      enabled: true

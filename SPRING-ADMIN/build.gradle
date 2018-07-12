@@ -1,0 +1,64 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.10.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") }
+}
+
+ext {
+    springCloudVersion = 'Edgware.RELEASE'
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'paas-ta-portal-infra-admin'
+}
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //Admin Server Setting
+    compile('de.codecentric:spring-boot-admin-starter-client:1.5.7')
+    compile('de.codecentric:spring-boot-admin-server-ui-activiti:1.5.7')
+    compile('de.codecentric:spring-boot-admin-server-ui-hystrix:1.5.7')
+    compile('de.codecentric:spring-boot-admin-server-ui-hystrix:1.5.7')
+
+    compile("org.springframework.boot:spring-boot-starter-web")
+    
+
+    compile("org.springframework.cloud:spring-cloud-starter-config")
+    compile("org.springframework.cloud:spring-cloud-starter-eureka")
+
+    compile('de.codecentric:spring-boot-admin-server:1.5.7')
+    compile('de.codecentric:spring-boot-admin-server-ui:1.5.7')
+    compile('de.codecentric:spring-boot-admin-server-ui-login:1.5.7')
+}
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = "0.7.9+"
+}
+
+test {
+    ignoreFailures = true
+    jacoco {
+        destinationFile = file("$buildDir/jacoco/jacoco-overall.exec")
+    }
+}

@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: CloudApiOne
+  cloud:
+    config:
+      uri: http://localhost:8004
+
+server:
+  port: ${PORT:2224}
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:2221/eureka/
+  instance:
+    hostname: ${spring.cloud.client.hostname}
+
+management:     # If you set off security...
+  security:
+    enabled: false
