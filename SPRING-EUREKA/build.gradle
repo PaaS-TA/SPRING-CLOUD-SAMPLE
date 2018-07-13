@@ -23,7 +23,7 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'jacoco'
 
 jar {
-    baseName = 'paas-ta-portal-registration'
+    baseName = 'CloudEureka'
 }
 
 sourceCompatibility = 1.8
