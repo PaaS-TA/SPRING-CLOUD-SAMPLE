@@ -7,13 +7,11 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * PaaS-TA Storage API application. 
- * (org.openpaas.paasta.portal.storage.api)
- * 
- * @author hgcho (Hyungu Cho)
- * @version 
- * @since 2018. 4. 2.
+ * EnableCircuitBreaker
+ * Circuit breaker 를 사용한다.
  *
+ * SpringBootApplication
+ * Configuration, EnableAutoConfiguration, ComponetScan 이 포함되어있다.
  */
 @EnableCircuitBreaker
 @SpringBootApplication

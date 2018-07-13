@@ -18,7 +18,11 @@ import java.util.HashMap;
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
- * Created by indra on 2018-02-07.
+ * Configuration, Bean
+ * 컨테이너에 새로운 Bean 객체를 만든다.
+ *
+ * EnableJpaRepositories
+ * Jpa 에서 사용될 Repository 의 위치 지정과, 설정을 정의한다.
  */
 @Configuration
 @EnableJpaRepositories(
@@ -30,6 +34,10 @@ public class PortalConfig {
 
     private static final Logger logger = getLogger(PortalConfig.class);
 
+    /**
+     * Value
+     * 프로퍼티값을 가져온다.
+     */
     @Value("${datasource.portal.driver-class-name}") String portalDriverClassName;
     @Value("${datasource.portal.url}") String portalUrl;
     @Value("${datasource.portal.username}") String portalUsername;

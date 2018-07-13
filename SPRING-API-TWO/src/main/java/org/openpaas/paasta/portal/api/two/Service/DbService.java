@@ -18,6 +18,10 @@ public class DbService {
     @Autowired
     ServicepackCategoryRepository servicepackCategoryRepository;
 
+    /**
+     * HystrixCommand
+     * Circuit breaker 와 연동되며, 서버별 request 빈도 및 응답속도 측정으로 서버 상태 파악.
+     */
     @HystrixCommand(commandKey = "getServicePackCatalogList")
     public List<ServicepackCategory> getServicePackCatalogList() {
         return servicepackCategoryRepository.findAll();
