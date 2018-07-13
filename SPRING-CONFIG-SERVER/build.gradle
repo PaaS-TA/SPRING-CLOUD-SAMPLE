@@ -17,7 +17,7 @@ apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
 jar{
-    baseName = 'CloudApiOne'
+    baseName = 'CloudConfig'
 }
 
 
