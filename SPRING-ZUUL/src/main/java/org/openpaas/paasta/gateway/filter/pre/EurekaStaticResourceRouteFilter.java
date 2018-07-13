@@ -23,8 +23,12 @@ import com.netflix.zuul.context.RequestContext;
  */
 // Zuul Eureka static resource redirect filter
 public class EurekaStaticResourceRouteFilter extends ZuulFilter {
-    private static final Logger logger = LoggerFactory.getLogger( EurekaStaticResourceRouteFilter.class ); 
-    
+    private static final Logger logger = LoggerFactory.getLogger( EurekaStaticResourceRouteFilter.class );
+
+    /**
+     * Value
+     * 프로퍼티값을 가져온다.
+     */
     @Value("${paasta.zuul.eureka-static.redirect-starts-with.filters:/eureka/css/,/eureka/js/,/eureka/fonts/,/eureka/images/}")
     private String[] filters;
     
@@ -43,6 +47,10 @@ public class EurekaStaticResourceRouteFilter extends ZuulFilter {
         return fullURL.substring(0, fullURL.indexOf(fullURI)) + routePath;
     }
 
+    /**
+     * HystrixCommand
+     * Circuit breaker 와 연동되며, 서버별 request 빈도 및 응답속도 측정으로 서버 상태 파악.
+     */
     @HystrixCommand(commandKey = "run")
     @Override
     public Object run() {

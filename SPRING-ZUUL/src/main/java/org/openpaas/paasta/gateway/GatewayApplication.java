@@ -8,7 +8,17 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 /**
- * The type Application.
+ * EnableHystrix
+ * Hystrix 를 사용한다.
+ *
+ * EnableZuulProxy
+ * EnableZuulProxy 는 EnableZuulServer 가 포함되있는 것이고, zuul 서버를 구축한다.
+ *
+ * EnableDiscoveryClient
+ * EurekaClient 를 등록한다.
+ *
+ * SpringBootApplication
+ * Configuration, EnableAutoConfiguration, ComponetScan 이 포함되어있다.
  */
 @EnableHystrix
 @EnableZuulProxy
