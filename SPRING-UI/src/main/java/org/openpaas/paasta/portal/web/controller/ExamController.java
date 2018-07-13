@@ -15,11 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
- * Login Controller
- *
- * @author nawkm
- * @version 1.0
- * @since 2016.4.4 최초작성
+ * RestController
+ * Spring 4.0 부터 추가된 어노테이션 으로 @Controller와 @ResponseBody 가 함깨 포함되어있다.
  */
 @Controller
 @RestController
@@ -31,7 +28,10 @@ public class ExamController {
     @Autowired
     ExamService examService;
 
-
+    /**
+     * GetMapping
+     * Spring 4.3 부터 추가된 어노테이션 으로 @RequestMapping 를 좀더 간편하게 만들 수 있는 어노테이션이다.
+     */
     @GetMapping(value = {"/eureka/{index}"})
     public Map eurekaIndex(@PathVariable String index, HttpServletRequest request) {
         LOGGER.info("eurekaIndex start");

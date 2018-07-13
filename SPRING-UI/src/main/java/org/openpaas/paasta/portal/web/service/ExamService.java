@@ -12,6 +12,10 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Map;
 
+/**
+ * Service
+ * 해당 클래스가 Service라는 것을 명시한다.
+ */
 @Service
 public class ExamService {
 
