@@ -1,0 +1,8 @@
+---
+applications:
+- name: CloudConfig                              # CF push 시 생성되는 이름
+  memory: 512M                                   # 메모리 
+  instances: 1                                   # 인스턴스 수
+  host: CloudConfig-edu                          # host 명으로 유일해야 함 (domain 포함 : CloudCofig-edu.xxx.com)
+  path: build/libs/CloudConfig.jar               # build 후 생성된 jar 위치
+  buildpack: java_buildpack_offline              # cf buildpacks 명령어로 java buildpack 이름 확인
