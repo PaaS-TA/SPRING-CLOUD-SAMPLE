@@ -9,6 +9,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -43,7 +44,7 @@ public class ExamController {
     @GetMapping(value = {"/zuul/{index}"})
     public Map zuulIndex(@PathVariable String index, HttpServletRequest request) {
         LOGGER.info("zuulIndex start");
-        LOGGER.info("eurekaIndex :: " + index);
+        LOGGER.info("zuulIndex :: " + index);
         Map rs = examService.zuulRest("cloudapione/apps/" + index + "/summary", HttpMethod.GET, null);
         return rs;
     }

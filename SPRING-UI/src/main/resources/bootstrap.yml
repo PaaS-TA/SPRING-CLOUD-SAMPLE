@@ -4,6 +4,9 @@ spring:
   cloud:
     config:
       uri: http://localhost:8004
+  thymeleaf:
+    prefix: /WEB-INF/views/
+    suffix: .html
 
 server:
   port: ${PORT:8080}

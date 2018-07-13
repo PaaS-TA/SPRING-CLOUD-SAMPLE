@@ -41,7 +41,7 @@ public class ExamService {
 
     public <T> Map<String, Object> zuulRest(String reqUrl, HttpMethod httpMethod, Object bodyObject) {
         RestTemplate restTemplate = new RestTemplate();
-        String requestURL =  "http://localhost:2225/"+reqUrl ;
+        String requestURL =  "http://localhost:2226/"+reqUrl ;
         HttpHeaders reqHeaders = new HttpHeaders();
         HttpEntity<Object> reqEntity = new HttpEntity<>(bodyObject, reqHeaders);
 
