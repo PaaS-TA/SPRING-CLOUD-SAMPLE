@@ -31,9 +31,12 @@ public class DbController {
      * Spring 4.3 부터 추가된 어노테이션 으로 @RequestMapping 를 좀더 간편하게 만들 수 있는 어노테이션이다.
      */
     @GetMapping(value = { "/servicePackCatalog/list"})
-    public List<ServicepackCategory> getServicePackCatalogList(HttpServletRequest request) throws Exception {
+    public Map getServicePackCatalogList(HttpServletRequest request) throws Exception {
         LOGGER.info("############# getServicePackCatalogList Start #############");
-        return dbService.getServicePackCatalogList();
+        List<ServicepackCategory> resultList = dbService.getServicePackCatalogList();
+        Map rs = new HashMap();
+        rs.put("result", resultList);
+        return rs;
     }
 
 }

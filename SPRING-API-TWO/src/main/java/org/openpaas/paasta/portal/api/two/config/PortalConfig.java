@@ -72,7 +72,7 @@ public class PortalConfig {
     public LocalContainerEntityManagerFactoryBean portalEntityManager() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(portalDataSource());
-        em.setPackagesToScan(new String[] { "org.openpaas.paasta.portal.common.api.entity.portal" });
+        em.setPackagesToScan(new String[] { "org.openpaas.paasta.portal.api.two.Entity" });
 
         HibernateJpaVendorAdapter vendorAdapter= new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
@@ -89,6 +89,9 @@ public class PortalConfig {
     public DataSource portalDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(portalDriverClassName);
+        portalUrl = "jdbc:mysql://115.68.46.219:3306/test";
+        portalUsername = "root";
+        portalPassword = "!paas_ta202";
         dataSource.setUrl(portalUrl);
         dataSource.setUsername(portalUsername);
         dataSource.setPassword(portalPassword);
