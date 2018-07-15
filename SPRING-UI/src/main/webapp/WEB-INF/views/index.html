@@ -55,8 +55,14 @@
             url: "/eureka/servicePackCatalog/list",
             success: function(data) {
                 console.log(data);
-                
-                $("#result").html(data.result.toString());
+                var text, fLen, i;
+
+                fLen = data.result.length;
+                text = "<ul>";
+                for (i = 0; i < fLen; i++) {
+                    text += "<li>" + data.result[i] + "</li>";
+                }
+                $("#result").html(text);
             },
             error: function(error) {
                 console.log(error);
@@ -70,7 +76,14 @@
             url: "/zuul/servicePackCatalog/list",
             success: function(data) {
                 console.log(data);
-                $("#result").html(data.result);
+                var text, fLen, i;
+
+                fLen = data.result.length;
+                text = "<ul>";
+                for (i = 0; i < fLen; i++) {
+                    text += "<li>" + data.result[i] + "</li>";
+                }
+                $("#result").html(text);
             },
             error: function(error) {
                 console.log(error);
