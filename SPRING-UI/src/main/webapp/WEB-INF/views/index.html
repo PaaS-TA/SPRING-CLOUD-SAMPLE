@@ -55,14 +55,20 @@
             url: "/eureka/servicePackCatalog/list",
             success: function(data) {
                 console.log(data);
-                var text, fLen, i;
-
-                fLen = data.result.length;
-                text = "<ul>";
-                for (i = 0; i < fLen; i++) {
-                    text += "<li>" + data.result[i] + "</li>";
-                }
-                $("#result").html(text);
+                $("#result").append('<tr>'
+                        + '<td>no</td>'
+                        + '<td>created</td>'
+                        + '<td>classification</td>'
+                        + '<td>useYN</td>'
+                        + '</tr>');
+                $.each(data.result, function (id, data) {
+                	$("#result").append('<tr>'
+                            + '<td>' + data.no + '</td>'
+                            + '<td>' + data.created + '</td>'
+                            + '<td>' + data.classification + '</td>'
+                            + '<td>' + data.useYn + '</td>'
+                            + '</tr>');
+                });
             },
             error: function(error) {
                 console.log(error);
@@ -76,14 +82,7 @@
             url: "/zuul/servicePackCatalog/list",
             success: function(data) {
                 console.log(data);
-                var text, fLen, i;
-
-                fLen = data.result.length;
-                text = "<ul>";
-                for (i = 0; i < fLen; i++) {
-                    text += "<li>" + data.result[i] + "</li>";
-                }
-                $("#result").html(text);
+                $("#result").html(data.result);
             },
             error: function(error) {
                 console.log(error);
