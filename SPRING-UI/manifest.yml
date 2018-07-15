@@ -1,0 +1,21 @@
+---
+applications:
+- name: CloudUi                              # CF push 시 생성되는 이름
+  memory: 1024M                                   # 메모리 
+  instances: 1                                   # 인스턴스 수
+  host: CloudUi-edu                          # host 명으로 유일해야 함 (domain 포함 : CloudEureka-edu.xxx.com)
+  path: build/libs/CloudUi.war               # build 후 생성된 jar 위치
+  buildpack: java_buildpack_offline              # cf buildpacks 명령어로 java buildpack 이름 확인
+  services:
+  - redis-service
+  env:
+    spring_cloud_config_uri: http://CloudConfig-edu.paas.iotmeca.com
+    spring_redis_host: ${vcap.services.redis-service.credentials.host}
+    spring_redis_password: ${vcap.services.redis-service.credentials.password}
+    spring_redis_port: ${vcap.services.redis-service.credentials.port}
+    spring_redis_timeout: 2100
+
+    eureka_instance_hostname: ${vcap.application.uris[0]}
+    eureka_instance_nonSecurePort: 80
+    eureka_client_serviceUrl_defaultZone: http://CloudEureka-edu.paas.iotmeca.com/eureka/
+    server_port: 80

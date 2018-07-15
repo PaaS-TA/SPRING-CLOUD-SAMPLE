@@ -1,17 +1,5 @@
 spring:
-  application:
-      name: CloudGateWay
   cloud:
     config:
       uri: http://localhost:8004
 
-server:
-  port: ${PORT:2226}
-
-# Discovery Server Access
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:2221/eureka/
-  instance:
-    hostname: ${spring.cloud.client.hostname}

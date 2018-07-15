@@ -1,0 +1,23 @@
+spring:
+  application:
+      name: CloudUi
+  thymeleaf:
+    prefix: /WEB-INF/views/
+    suffix: .html
+  redis:
+      host: ${vcap.services.redis-service.credentials.host:localhost}
+      password: ${vcap.services.redis-service.credentials.password:4333c2c0-4f51-433d-a5c3-ede30af0c63f}
+      port: ${vcap.services.redis-service.credentials.port:33777}
+      timeout: 2100
+
+server:
+  port: ${PORT:8080}
+
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:2221/eureka/
+  instance:
+    hostname: ${spring.cloud.client.hostname}

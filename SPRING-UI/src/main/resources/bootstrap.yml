@@ -1,21 +1,4 @@
 spring:
-  application:
-      name: CloudUi
   cloud:
     config:
       uri: http://localhost:8004
-  thymeleaf:
-    prefix: /WEB-INF/views/
-    suffix: .html
-
-server:
-  port: ${PORT:8080}
-
-
-# Discovery Server Access
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://127.0.0.1:2221/eureka/
-  instance:
-    hostname: ${spring.cloud.client.hostname}

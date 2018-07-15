@@ -28,7 +28,7 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'war'
 
 war {
-    baseName = 'paas-ta-portal-webadmin'
+    baseName = 'CloudUi'
 }
 
 sourceCompatibility = 1.8
@@ -60,6 +60,10 @@ dependencies {
 
     //WEB
     compile("org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatEmbedJasperVersion}")
+    
+    // for redis session
+    //compile ('org.springframework.boot:spring-boot-starter-redis')
+    //compile ('org.springframework.session:spring-session:1.1.1.RELEASE')
 
     
 

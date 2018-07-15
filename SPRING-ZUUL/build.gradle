@@ -21,7 +21,7 @@ apply plugin: 'jacoco'
 
 
 jar {
-    baseName = 'paas-ta-portal-gateway'
+    baseName = 'CloudGateWay'
 }
 
 sourceCompatibility = 1.8
