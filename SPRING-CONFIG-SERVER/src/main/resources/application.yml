@@ -7,8 +7,8 @@ spring:
         git:
 #          uri:/Users/swmoon/Dev/Source/Config/SPRING-CLOUD-SAMPLE-CONFIG
           uri: https://github.com/PaaS-TA/SPRING-CLOUD-SAMPLE-CONFIG.git
-          username: changhaksong
-          password: ckdgkr96!$
+          username: xxxxxx
+          password: XXXXXX
 #          basedir: target/config
           force-pull: true
 

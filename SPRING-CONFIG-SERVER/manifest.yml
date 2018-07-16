@@ -6,3 +6,9 @@ applications:
   host: CloudConfig-edu                          # host 명으로 유일해야 함 (domain 포함 : CloudCofig-edu.xxx.com)
   path: build/libs/CloudConfig.jar               # build 후 생성된 jar 위치
   buildpack: java_buildpack_offline              # cf buildpacks 명령어로 java buildpack 이름 확인
+
+env:
+  spring_cloud_config_server_git_uri: https://github.com/PaaS-TA/SPRING-CLOUD-SAMPLE-CONFIG.git
+  spring_cloud_config_server_git_username: xxxx
+  spring_cloud_config_server_git_password: xxxxx
+  spring_cloud_config_server_git_force-pull: true
