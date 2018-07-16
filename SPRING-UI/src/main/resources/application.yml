@@ -18,6 +18,8 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://127.0.0.1:2221/eureka/
+      #defaultZone: http://127.0.0.1:2221/eureka/
+      dafaultZone: http://CloudEureka-edu.paas.iotmeca.com/eureka/
   instance:
     hostname: ${spring.cloud.client.hostname}
+    #hostname: localhost

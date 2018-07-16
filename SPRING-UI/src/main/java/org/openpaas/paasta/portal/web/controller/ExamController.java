@@ -45,7 +45,7 @@ public class ExamController {
 
 		ExamController.LOGGER.info("zuulIndex start");
 		ExamController.LOGGER.info("zuulIndex :: " + index);
-		Map rs = this.examService.zuulRest("CLOUDGATEWAY/CloudApiOwn/apps/" + index + "/summary", HttpMethod.GET, null);
+		Map rs = this.examService.eurekaRest("CLOUDGATEWAY/cloudapione/apps/" + index + "/summary", HttpMethod.GET, null);
 		return rs;
 	}
 
@@ -61,7 +61,7 @@ public class ExamController {
 	public Map zuulGetServicePackCatalogList(HttpServletRequest request) {
 
 		ExamController.LOGGER.info("zuulGetServicePackCatalogList start");
-		Map rs = this.examService.zuulRest("CLOUDGATEWAY/CloudApiTwo/servicePackCatalog/list", HttpMethod.GET, null);
+		Map rs = this.examService.eurekaRest("CLOUDGATEWAY/cloudapitwo/servicePackCatalog/list", HttpMethod.GET, null);
 		return rs;
 	}
 

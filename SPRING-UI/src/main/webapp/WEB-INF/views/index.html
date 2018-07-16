@@ -11,10 +11,10 @@
 </head>
 <body>
     <div>
-        <button onclick="javascript:go1();">ownEureka</button>
-        <button onclick="javascript:go2();">ownZuul</button>
-        <button onclick="javascript:go3();">twoEureka</button>
-        <button onclick="javascript:go4();">twoZuul</button>
+        <!-- <button onclick="javascript:go1();">ownEureka</button>  -->
+        <button onclick="javascript:go2();">API_ONE</button>
+        <!-- <button onclick="javascript:go3();">twoEureka</button>   -->
+        <button onclick="javascript:go4();">API_TWO</button>
     </div>
     <div id="result">
 
@@ -26,6 +26,7 @@
         $.ajax({
             url: "/eureka/1",
             success: function(data) {
+            	$("#result").html('');
                 console.log(data);
                 $("#result").html(data.result.toString());
             },
@@ -40,6 +41,7 @@
         $.ajax({
             url: "/zuul/1",
             success: function(data) {
+            	$("#result").html('');
                 console.log(data);
                 $("#result").html(data.result);
             },
@@ -54,6 +56,7 @@
         $.ajax({
             url: "/eureka/servicePackCatalog/list",
             success: function(data) {
+            	$("#result").html('');
                 console.log(data);
                 $("#result").append('<tr>'
                         + '<td>no</td>'
@@ -81,8 +84,22 @@
         $.ajax({
             url: "/zuul/servicePackCatalog/list",
             success: function(data) {
+            	$("#result").html('');
                 console.log(data);
-                $("#result").html(data.result);
+                $("#result").append('<tr>'
+                        + '<td>no</td>'
+                        + '<td>created</td>'
+                        + '<td>classification</td>'
+                        + '<td>useYN</td>'
+                        + '</tr>');
+                $.each(data.result, function (id, data) {
+                	$("#result").append('<tr>'
+                            + '<td>' + data.no + '</td>'
+                            + '<td>' + data.created + '</td>'
+                            + '<td>' + data.classification + '</td>'
+                            + '<td>' + data.useYn + '</td>'
+                            + '</tr>');
+                });
             },
             error: function(error) {
                 console.log(error);

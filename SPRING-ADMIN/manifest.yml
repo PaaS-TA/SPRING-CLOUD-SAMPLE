@@ -6,11 +6,12 @@ applications:
   host: CloudAdmin-edu                          # host 명으로 유일해야 함 (domain 포함 : CloudEureka-edu.xxx.com)
   path: build/libs/CloudAdmin.jar               # build 후 생성된 jar 위치
   buildpack: java_buildpack_offline              # cf buildpacks 명령어로 java buildpack 이름 확인
-
+  services:
+  - eureka-service
   env:
     spring_cloud_config_uri: http://CloudConfig-edu.paas.iotmeca.com
 
     eureka_instance_hostname: ${vcap.application.uris[0]}
     eureka_instance_nonSecurePort: 80
-    eureka_client_serviceUrl_defaultZone: http://CloudEureka-edu.paas.iotmeca.com/eureka/
+    eureka_client_serviceUrl_defaultZone: ${vcap.services.eureka-service.credentials.uri}/eureka/
     server_port: 80
