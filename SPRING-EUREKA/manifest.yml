@@ -5,15 +5,15 @@ applications:
   instances: 1                                   # 인스턴스 수
   host: CloudEureka-edu                          # host 명으로 유일해야 함 (domain 포함 : CloudEureka-edu.xxx.com)
   path: build/libs/CloudEureka.jar               # build 후 생성된 jar 위치
-  buildpack: java_buildpack_offline              # cf buildpacks 명령어로 java buildpack 이름 확인
+  buildpack: java_buildpack-v4-8              # cf buildpacks 명령어로 java buildpack 이름 확인
 
   env:
-    spring_cloud_config_uri: http://CloudConfig-edu.paas.iotmeca.com   # Spring congig server uri
+    spring_cloud_config_uri: http://CloudConfig-edu.52.231.156.190.xip.io   # Spring congig server uri
     eureka_instance_hostname: ${vcap.application.uris[0]}
     eureka_client_registerWithEureka: false
     eureka_client_fetchRegistry: false
     eureka_client_healthcheck_enabled: true
     eureka_server_enableSelfPreservation: true
     eureka_instance_nonSecurePort: 80
-
     server_port: 80
+    JAVA_OPTS:  -Xss349k
