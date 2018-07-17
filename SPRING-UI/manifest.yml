@@ -1,7 +1,7 @@
 ---
 applications:
 - name: CloudUi                              # CF push 시 생성되는 이름
-  memory: 1024M                                   # 메모리 
+  memory: 512M                                   # 메모리 
   instances: 1                                   # 인스턴스 수
   host: CloudUi-edu                          # host 명으로 유일해야 함 (domain 포함 : CloudEureka-edu.xxx.com)
   path: build/libs/CloudUi.war               # build 후 생성된 jar 위치
