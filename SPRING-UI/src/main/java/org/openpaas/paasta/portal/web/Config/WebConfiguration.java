@@ -1,8 +1,9 @@
-package org.openpaas.paasta.portal.web.Config;
+package org.openpaas.paasta.portal.web.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+//import org.springframework.session.data.redis.config.ConfigureRedisAction;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -16,4 +17,11 @@ public class WebConfiguration {
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
+
+
+//    @Bean
+//    public static ConfigureRedisAction configureRedisAction()
+//    {
+//        return ConfigureRedisAction.NO_OP;
+//    }
 }

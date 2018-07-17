@@ -5,9 +5,9 @@ spring:
     prefix: /WEB-INF/views/
     suffix: .html
   redis:
-      host: ${vcap.services.redis-service.credentials.host:localhost}
-      password: ${vcap.services.redis-service.credentials.password:4333c2c0-4f51-433d-a5c3-ede30af0c63f}
-      port: ${vcap.services.redis-service.credentials.port:33777}
+      host: 127.0.0.1
+      password: password
+      port: 33777
       timeout: 2100
 
 server:

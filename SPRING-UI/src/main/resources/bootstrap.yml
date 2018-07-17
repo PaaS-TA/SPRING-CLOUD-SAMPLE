@@ -1,5 +1,5 @@
 spring:
   cloud:
     config:
-      #uri: http://localhost:8004
-      uri: http://CloudConfig-edu.paas.iotmeca.com
+      uri: http://localhost:8004
+#      uri: http://CloudConfig-edu.paas.iotmeca.com
